@@ -33,6 +33,8 @@
 #printArea .pdf-footer{border-top:1px solid #c9cec8;margin-top:18px;padding-top:8px;font-size:8pt}
 @media print{#printArea{display:block!important}.app{display:none!important}#printArea .pdf-brand,#printArea tr{break-inside:avoid}}
 #expAllotment,#expCategory{-webkit-appearance:none;appearance:none;padding-right:38px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%2373776f' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+@media(max-width:699px){.settings-data-actions{display:flex;flex-direction:column;width:100%}.settings-data-actions button{width:100%}}
+.settings-data-actions{margin-bottom:11px}
 </style>
 </head>
 <body>
@@ -78,8 +80,9 @@
 <section id="settings" class="screen">
  <div class="section-head"><div><div class="muted" style="font-size:12px">PREFERENCES</div><h2>Settings</h2></div></div>
  <div class="panel"><h3 style="margin-top:0">Budget and currency</h3><div class="field"><label>Default currency</label><select id="settingsCurrency" onchange="changeCurrency(this.value)"><option value="PKR">PKR · Pakistani Rupee</option><option value="USD">USD · US Dollar</option><option value="EUR">EUR · Euro</option><option value="GBP">GBP · Pound Sterling</option><option value="INR">INR · Indian Rupee</option><option value="AED">AED · UAE Dirham</option><option value="SAR">SAR · Saudi Riyal</option><option value="BDT">BDT · Bangladeshi Taka</option><option value="other">Other / plain amount</option></select></div><button class="primary" onclick="openBudget()">Edit current month budget</button></div>
- <div class="panel"><h3 style="margin-top:0">Data and privacy</h3><p class="muted">Your budget and ledger are stored locally in this browser/app. Clearing app data or uninstalling may erase them. Export a backup regularly.</p><div class="toolbar"><button onclick="backupData()">Download backup</button><button onclick="document.getElementById('restoreFile').click()">Restore backup</button><button class="danger" onclick="clearData()">Delete all data</button></div></div>
- <div class="panel"><h3 style="margin-top:0">Credits</h3><p>BudgetUX</p><p class="muted">Developed by <a href="https://shaheenux.vercel.app" target="_blank" rel="noopener noreferrer" style="color:var(--green)">shaheenux.vercel.app</a></p><p class="note">A personal budgeting utility. It is not a bank or financial adviser.</p></div>
+ <div class="panel"><h3 style="margin-top:0">Data and privacy</h3><p class="muted">Your budget and ledger are stored locally in this browser/app. Clearing app data or uninstalling may erase them. Export a backup regularly.</p></div>
+ <div class="toolbar settings-data-actions"><button onclick="backupData()">Download backup</button><button onclick="document.getElementById('restoreFile').click()">Restore backup</button><button class="danger" onclick="clearData()">Delete all data</button></div>
+ <div class="panel"><h3 style="margin-top:0">Credits</h3><p class="muted">Developed by <a href="https://shaheenux.vercel.app" target="_blank" rel="noopener noreferrer" style="color:var(--green)">shaheenux.vercel.app</a></p><p class="note">A personal budgeting utility. It is not a bank or financial adviser.</p></div>
 </section>
 <div class="footer"><span>BudgetUX</span><span>Developed by <a href="https://shaheenux.vercel.app" target="_blank" rel="noopener noreferrer" style="color:var(--green)">shaheenux.vercel.app</a></span></div>
 </div>
