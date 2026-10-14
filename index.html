@@ -9,6 +9,7 @@
 @media(min-width:700px){.app{padding:0 24px 40px}.top{flex-wrap:nowrap}.top-nav{margin-left:auto}.nav{display:none}.side-menu{display:grid;grid-template-columns:1fr;position:sticky;top:15px}.main-grid{grid-template-columns:minmax(0,1.2fr) minmax(180px,.8fr)}.main-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(250px,.75fr);gap:14px;align-items:start}.main-grid .ledger-panel{margin-top:0}.hero{padding:25px}.balance{font-size:42px}}
 @media(max-width:699px){.top{flex-wrap:nowrap;justify-content:flex-start}.top-nav{display:none}.mobile-navigation{display:block;margin-left:auto;position:relative}.mobile-navigation summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:9px;padding:9px 12px;font-weight:600}.mobile-navigation summary::-webkit-details-marker{display:none}.mobile-navigation summary:after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-top:-4px;transition:transform .15s ease}.mobile-navigation[open] summary:after{transform:rotate(225deg);margin-top:4px}.mobile-navigation-options{position:absolute;right:0;top:calc(100% + 6px);z-index:6;min-width:165px;padding:5px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 5px 14px #26292322}.mobile-navigation-options button{display:block;width:100%;text-align:left;border:0;padding:10px}.mobile-navigation-options button.current{background:var(--green);border-color:var(--green);color:#fff}.side-menu{overflow-x:auto;flex-wrap:nowrap}.side-menu button{white-space:nowrap}}@media(max-width:420px){.app{padding:0 12px 28px}.stats{gap:6px}.stat strong{font-size:12px}.hero{padding:17px}.actions{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
 .mobile-download{display:none}
+@media(min-width:700px){#months .desktop-downloads{flex-wrap:nowrap}#months .desktop-downloads>button{flex:1 1 0;min-width:0;padding:8px 6px;font-size:13px;text-align:center}}
 .mobile-navigation{display:none}
 .top-nav button.current{background:var(--green);border-color:var(--green);color:#fff}
 .top-nav button.current:hover{background:var(--green);color:#fff}
@@ -56,7 +57,18 @@
 </section>
 <section id="months" class="screen">
  <div class="section-head"><div><div class="muted" style="font-size:12px">YOUR HISTORY</div><h2>Monthly records</h2></div></div>
- <p class="muted">Each month keeps its own budget and expenses. Changing this month's budget won't rewrite older months.</p><div class="panel"><div class="toolbar desktop-downloads"><button onclick="saveAllPDF()">Save full ledger as PDF</button><button onclick="exportCSV(true)">Export all months (CSV)</button><button onclick="backupData()">Download backup</button></div><div class="mobile-download toolbar"><details class="download-menu"><summary>Download</summary><div class="download-options"><button type="button" onclick="downloadSelection('history','pdf')">PDF report</button><button type="button" onclick="downloadSelection('history','csv')">CSV spreadsheet</button><button type="button" onclick="downloadSelection('history','backup')">JSON backup</button></div></details><button type="button" class="restore-button" onclick="document.getElementById('restoreFile').click()">Restore backup</button></div><div class="toolbar" style="margin-top:10px"><button class="desktop-restore-button" onclick="document.getElementById('restoreFile').click()">Restore backup</button><input id="restoreFile" type="file" accept=".json,application/json" class="hidden" onchange="restoreData(event)"></div></div><div class="section-head"><h2>Months</h2></div><div id="monthList"></div>
+ <p class="muted">Each month keeps its own budget and expenses. Changing this month's budget won't rewrite older months.</p>
+ <div class="panel">
+  <div class="toolbar desktop-downloads">
+   <button onclick="saveAllPDF()">Save full ledger as PDF</button>
+   <button onclick="exportCSV(true)">Export all months (CSV)</button>
+   <button onclick="backupData()">Download backup</button>
+   <button class="desktop-restore-button" onclick="document.getElementById('restoreFile').click()">Restore backup</button>
+  </div>
+  <div class="mobile-download toolbar"><details class="download-menu"><summary>Download</summary><div class="download-options"><button type="button" onclick="downloadSelection('history','pdf')">PDF report</button><button type="button" onclick="downloadSelection('history','csv')">CSV spreadsheet</button><button type="button" onclick="downloadSelection('history','backup')">JSON backup</button></div></details><button type="button" class="restore-button" onclick="document.getElementById('restoreFile').click()">Restore backup</button></div>
+  <input id="restoreFile" type="file" accept=".json,application/json" class="hidden" onchange="restoreData(event)">
+ </div>
+ <div class="section-head"><h2>Months</h2></div><div id="monthList"></div>
 </section>
 <section id="reports" class="screen">
  <div class="section-head"><div><div class="muted" style="font-size:12px">AT A GLANCE</div><h2>Spending report</h2></div><button onclick="saveAllPDF()">Save report as PDF</button></div>
